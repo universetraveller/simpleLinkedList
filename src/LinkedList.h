@@ -4,18 +4,18 @@
 template <typename elemtype>
 class LinkedList {
 public:
-	void Print_cout()const;		//´òÓ¡È«²¿ÔªËØ
+	void Print_cout()const;		//æ‰“å°å…¨éƒ¨å…ƒç´ 
 	LinkedList(){
-		root_pointer_ = new Node<elemtype>;		//ÀûÓÃ½Úµã³õÊ¼»¯
+		root_pointer_ = new Node<elemtype>;		//åˆ©ç”¨èŠ‚ç‚¹åˆå§‹åŒ–
 		last_node_ = root_pointer_;
 	}
 	LinkedList(elemtype input) {
-		root_pointer_ = new Node<elemtype>(input);		//ÀûÓÃ½Úµã³õÊ¼»¯
+		root_pointer_ = new Node<elemtype>(input);		//åˆ©ç”¨èŠ‚ç‚¹åˆå§‹åŒ–
 		last_node_ = root_pointer_;
 	}
 	~LinkedList() {
 		if (!is_sub_) {
-			this->erase();  //¶Ô·Ç×ÓlistÎö¹¹
+			this->erase();  //å¯¹éå­listææ„
 		}
 	}
 	void pop(unsigned place=0);
@@ -31,13 +31,13 @@ public:
 	void merge(LinkedList<elemtype>&);
 	void push_back(elemtype);
 	void push_front(elemtype);
-	void insert(elemtype, unsigned place=0);  //Ä³Î»ÖÃÖ®ºó²åÈë
-	void insert(elemtype, Node<elemtype>*);  //Î»ÖÃÓÃÖ¸Õë±íÊ¾µÄĞÎÊ½
+	void insert(elemtype, unsigned place=0);  //æŸä½ç½®ä¹‹åæ’å…¥
+	void insert(elemtype, Node<elemtype>*);  //ä½ç½®ç”¨æŒ‡é’ˆè¡¨ç¤ºçš„å½¢å¼
 	unsigned size()const;
 	Node<elemtype>* getPlacePointer(unsigned)const;
 	elemtype& operator[](unsigned);
 private:
-	Node<elemtype>* root_pointer_ = 0;	//¸ù½Úµã
-	Node<elemtype>* last_node_ = 0;	//×îºóµÄ½Úµã£¨ÎŞºó¼Ì£©
-	bool is_sub_;  //±ê¼Ç¸ÃlistÎª×Ólist£¬Ö®Ç°Ã»ÓĞÕâ¸ö²ÎÊı»áÏÈÎö¹¹×Ólist²úÉúbug
+	Node<elemtype>* root_pointer_ = 0;	//æ ¹èŠ‚ç‚¹
+	Node<elemtype>* last_node_ = 0;	//æœ€åçš„èŠ‚ç‚¹ï¼ˆæ— åç»§ï¼‰
+	bool is_sub_;  //æ ‡è®°è¯¥listä¸ºå­listï¼Œä¹‹å‰æ²¡æœ‰è¿™ä¸ªå‚æ•°ä¼šå…ˆææ„å­listäº§ç”Ÿbug
 };
